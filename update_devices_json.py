@@ -16,15 +16,15 @@ s = requests.session()
 
 with open('ap_inventory.json','r') as file:
   json_data = json.load(file)
-for data in json_data['devices']:
-    data_mac = data['mac']
-    data_folder = data['additionalData']['folder']
-    ##post_data = [('json','{ "devices" : [ { "mac" : "'+data_mac+'","folderName":"'+data_folder+'" } ] }')] ##kansioon mikä löytyy tiedostosta
-    post_data = [('json','{ "devices" : [ { "mac" : "'+data_mac+'","folderName":"VBO" } ] }')] ## määriteltyyn kansioon
-    #print(post_data)
-    resp = s.post(url=url, cookies=cookies, data=post_data, params=params)
-    print (resp.json())
 
+ for data in json_data['devices']:
+     data_mac = data['mac']
+     data_folder = data['additionalData']['folder']
+     post_data = [('json','{ "devices" : [ { "mac" : "'+data_mac+'","folderName":"'+data_folder+'" } ] }')] ##kansioon mikä löytyy tiedostosta
+     post_data = [('json','{ "devices" : [ { "mac" : "'+data_mac+'","folderName":"VBO" } ] }')] ## määriteltyyn kansioon
+     print(post_data)
+     resp = s.post(url=url, cookies=cookies, data=post_data, params=params)
+     print (resp.json())
 
 
 
