@@ -15,5 +15,7 @@ url = "https://activate.arubanetworks.com/api/ext/folder.json?action=query"
 
 r = s.post(url=url, cookies=cookies)
 respdata = r.json()
-pprint.pprint(respdata['folders'])
+print("Folders:")
+for data in respdata['folders']:
+    pprint.pprint(data['folderName'])
 ##print('Foldername:   ' + i['folderName'] + '    FolderId:  '+ i['folderId'])

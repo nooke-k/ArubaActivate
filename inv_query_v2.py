@@ -11,7 +11,7 @@ resp = s.post(url=url, cookies=cookies)
 count = 0
 if resp and resp.status_code == 200:
     ap_inventory = resp.json()
-    folder = input("folder to look for, comma separate several folders:").upper()
+    folder = input("folder to look for, separate with comma:").upper()
 else:
     print("ERROR:", resp.status_code, resp)
 
@@ -21,4 +21,5 @@ for data in ap_inventory['devices']:
     if data['additionalData']['folder'] in folder:
         count += 1
         print("mac: ", data_mac, "in folder:  ", data_folder)
+
 print("total aps", count)
