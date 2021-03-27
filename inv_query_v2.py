@@ -20,5 +20,5 @@ for data in ap_inventory['devices']:
     data_folder = data['additionalData']['folder']
     if data['additionalData']['folder'] in folder:
         count += 1
-        print("mac: ", data_mac, "folder:  ", data_folder)
+        print("mac: ", data_mac, "in folder:  ", data_folder)
 print("total aps", count)
