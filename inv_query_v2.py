@@ -11,7 +11,7 @@ resp = s.post(url=url, cookies=cookies)
 count = 0
 if resp and resp.status_code == 200:
     ap_inventory = resp.json()
-    folder = input("folder to look for:").upper()
+    folder = input("folder to look for, comma separate several folders:").upper()
 else:
     print("ERROR:", resp.status_code, resp)
 
